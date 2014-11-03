@@ -1,6 +1,3 @@
-SeleniumIDEChrome
-=================
-
 #Selenium IDE for Chrome
 
 ##How Selenium IDE Works
