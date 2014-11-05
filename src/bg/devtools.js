@@ -42,22 +42,28 @@ var page_getProperties = function() {
 	var findElement = 'driver.FindElement';
 
 	var selenium = {
-		"C# get element by id": hasId ?
-			'var ' + formatCSharpId(id) + ' = ' + findElement + '(By.Id("' + id + '"));' : 'Element has no id',
-		"C# get element css class": hasCssClass ?
-			'var ' + formatCSharpId(cssClass) + ' = ' + findElement + '(By.CssSelector("' + cssClass + '"));' :
-			'Element has css class',
-		"C# assert text by id": hasText && hasId ? 
-			assertEqual + text + '", ' + findElement + '(By.Id("' + id + '")).Text);"' :
-		 	'Element has no id or no text',
-
-		"C# assert text by css class":  hasText && hasCssClass ?
-		 	assertEqual + text + '", ' + findElement + '(By.CssSelector("' + cssClass + '")).Text);' :
-		  	"Element has no css class or no text"
+		"C# find element by id":
+			hasId ? 'var ' + formatCSharpId(id) + ' = ' + findElement + '(By.Id("' + id + '"));' : 'Element has no id',
+		"C# find element by css class":
+			hasCssClass ? 'var ' + formatCSharpId(cssClass) + ' = ' + findElement + '(By.CssSelector("' + cssClass + '"));' :
+				'Element has no css class',
+		"C# assert text by id":
+			hasText && hasId ? assertEqual + text + '", ' + findElement + '(By.Id("' + id + '")).Text);"' :
+		 		'Element has no id or no text',
+		"C# assert text by css class":
+			hasText && hasCssClass ? assertEqual + text + '", ' + findElement + '(By.CssSelector("' + cssClass + '")).Text);' :
+		  		"Element has no css class or no text",
+		"Ruby find element by id":
+			hasId ? '@driver.find_element(:id, "' + id + '")' : 'Element has no id',
+		"Ruby find element by css class":
+			hasCssClass ? '@driver.find_element(:css, "' + cssClass + '")' : 'Element has no css class',
+		"Ruby assert text by id":
+			hasText && hasId ? '(@driver.find_element(:id, "' + id + '").text).should == "' + text + '"' :
+				'Element has no id or no text',
+		"Ruby assert text by css class":
+			hasText && hasCssClass ? '(@driver.find_element(:css, "' + cssClass + '").text).should == "' + text + '"' :
+				'Element has no css class or no text',
 	};
-	
-
-	
 
 	return selenium;
 }

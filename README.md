@@ -14,7 +14,7 @@ Features Currently Supported
 
 | Feature         		    | C#  | Ruby | Java|
 |:--------------------------| ---:| ----:| ----:
-| Find element by id 	    | Yes |    No|   No|
-| Find element by css class | Yes |    No|   No|
-| Assert text by id         | Yes |    No|   No|
-| Assert text by css class 	| Yes |    No|   No|
+| Find element by id 	    | Yes |   Yes|   No|
+| Find element by css class | Yes |   Yes|   No|
+| Assert text by id         | Yes |   Yes|   No|
+| Assert text by css class 	| Yes |   Yes|   No|
